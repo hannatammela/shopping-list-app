@@ -5,7 +5,7 @@ import defaultStyle from "../styles/defaultStyle";
 export default function Home() {
     return (
         <View style={defaultStyle.container}>
-            <Text style={defaultStyle.title}>Shopping List</Text>
+            <Text style={defaultStyle.title}>Shopping List!</Text>
 
             <View style={defaultStyle.buttonContainer}>
             <Pressable
