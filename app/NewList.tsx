@@ -23,30 +23,25 @@ export default function NewList() {
     <View style={commonStyles.container}>
       <Text style={commonStyles.title}>Uusi lista</Text>
     
-<TextInput
-  placeholder="Anna listan nimi"
-  value={listName}
-  onChangeText={setListName}
-  style={commonStyles.input}
-/>
-<TextInput
-  placeholder="Tuote"
-  value={product}
-  onChangeText={setProduct}
-  style={commonStyles.input}
-/>
-<TextInput
-  placeholder="Määrä"
-  value={quantity}
-  onChangeText={setQuantity}
-  style={commonStyles.input}
-/>
-<Pressable
-  style={[commonStyles.button, commonStyles.primaryButton]}
-  onPress={saveList}
->
+
+  <TextInput
+    placeholder="Tuote"
+    value={product}
+    onChangeText={setProduct}
+    style={commonStyles.input}
+  />
+  <TextInput
+    placeholder="Määrä"
+    value={quantity}
+    onChangeText={setQuantity}
+    style={commonStyles.input}
+  />
+  <Pressable
+    style={[commonStyles.button, commonStyles.primaryButton]}
+    onPress={saveList}
+  >
   <Text style={commonStyles.primaryButtonText}>Tallenna</Text>
-</Pressable>
-    </View>
+  </Pressable>
+  </View>
   );
 }
