@@ -8,12 +8,13 @@ export const commonStyles = StyleSheet.create({
     alignItems: 'center',        // keskitys vaakasuunnassa
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 30,
-    color: '#333',
-  },
+  fontSize: 52,
+  fontFamily: 'DancingScript', // Dancing Script fontti
+  color: '#334216',            // sama kuin tallenna-painikkeen väri
+  textAlign: 'center',
+  marginTop: 20,
+  marginBottom: 60,            // isompi väli tuote-kenttään
+},
   input: {
     width: '90%',             // siisti leveys
     borderWidth: 1,
