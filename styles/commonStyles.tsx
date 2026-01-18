@@ -61,7 +61,57 @@ export const commonStyles = StyleSheet.create({
   },
   pressedBackButton: {
     backgroundColor: '#4b5d2b', // tummempi vihreä, takaisin-painikkeelle
+  },
+  itemBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#d9e5cd', // vaalea vihreä
+    padding: 12,
+    borderRadius: 12,
+    marginBottom: 10,
+    width: '100%',
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderWidth: 2,
+    borderColor: '#334216',
+    borderRadius: 4,
+    marginRight: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkedDot: {
+    width: 12,
+    height: 12,
+    backgroundColor: '#334216',
+    borderRadius: 6,
+  },
+  itemText: {
+    fontSize: 18,
+    color: '#334216',
+    marginRight: 20,
+  },
+  listContainer: {
+    width: '90%',       // sama leveys kuin Lisää-painike
+    marginTop: 50,      // pieni väli painikkeen alapuolelle
+    alignSelf: 'center', // keskitetään vaakasuunnassa
+  },
+  deleteIcon: {
+    marginLeft: 'auto',     // työntää ikonin oikeaan reunaan
+    fontSize: 24,
+    color: '#334216',
+  },
+  pressedDeleteIcon: {
+    backgroundColor: '#b7d1a5', // vaalea vihreä, sopii itemBoxin väriin
+    borderRadius: 5,             // pyöristys, jotta efekti on siisti
+    padding: 3,
+  },
+  backIcon: {
+  fontSize: 26,
+  color: '#fff',
 },
+
 
 });
 

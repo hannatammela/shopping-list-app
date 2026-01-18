@@ -53,7 +53,7 @@ export const defaultStyle = StyleSheet.create({
     bottom: 80,
     alignSelf: 'center',
     fontSize: 65,
-        color: '#334216',
+    color: '#334216',
   },
   pressedButton: {
   backgroundColor: '#4b5d2b',
