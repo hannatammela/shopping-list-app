@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <View style={defaultStyle.container}>
 
-      <View style={defaultStyle.superCircle}>      
-        <View style={defaultStyle.superHole} />
+      <View style={defaultStyle.bottomCircle}>      
+        <View style={defaultStyle.topCircle} />
         <Text style={[defaultStyle.superTitle, { fontFamily: 'DancingScript' }]}>Shopping List</Text>
 
         <Fontisto
@@ -26,14 +26,11 @@ export default function Home() {
         />
       </View>
 
-      <View style={defaultStyle.buttonContainer}>
-        <Pressable
-          style={[defaultStyle.button, defaultStyle.primaryButton]}
-          onPress={() => router.push("/NewList")}>
-
-          <Text style={defaultStyle.primaryButtonText}>Uusi lista</Text>
-        </Pressable>
+    <Pressable
+        style={defaultStyle.button}   // käytetään uutta button-tyyliä
+        onPress={() => router.push("/NewList")}>
+    <Text style={defaultStyle.buttonText}>Uusi lista</Text>
+    </Pressable>
       </View>
-    </View>
   );
 }

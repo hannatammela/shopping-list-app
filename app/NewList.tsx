@@ -46,10 +46,10 @@ export default function NewList() {
     style={commonStyles.input}
   />
   <Pressable
-    style={[commonStyles.button, commonStyles.primaryButton]}
+    style={[commonStyles.button, commonStyles.button]}
     onPress={saveList}
   >
-  <Text style={commonStyles.primaryButtonText}>Lisää</Text>
+  <Text style={commonStyles.buttonText}>Lisää</Text>
   </Pressable>
 
   <Pressable
