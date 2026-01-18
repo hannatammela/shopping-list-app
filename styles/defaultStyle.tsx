@@ -55,6 +55,9 @@ export const defaultStyle = StyleSheet.create({
     fontSize: 65,
         color: '#334216',
   },
+  pressedButton: {
+  backgroundColor: '#4b5d2b',
+},
 });
 
 export default defaultStyle;

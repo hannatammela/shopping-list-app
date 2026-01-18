@@ -32,28 +32,37 @@ export default function NewList() {
     <View style={commonStyles.container}>
       <Text style={commonStyles.title}>Uusi lista</Text>
     
-
   <TextInput
     placeholder="Tuote"
     value={product}
     onChangeText={setProduct}
     style={commonStyles.input}
   />
+
   <TextInput
     placeholder="Määrä"
     value={quantity}
     onChangeText={setQuantity}
     style={commonStyles.input}
   />
+
   <Pressable
-    style={[commonStyles.button, commonStyles.button]}
-    onPress={saveList}
+    style={({ pressed }) => [
+      commonStyles.button,
+      pressed && commonStyles.pressedButton
+  ]}
+  onPress={saveList}
   >
   <Text style={commonStyles.buttonText}>Lisää</Text>
   </Pressable>
 
+  
   <Pressable
-  style={commonStyles.backButton}
+   style={({ pressed }) => [
+    commonStyles.backButton,
+    pressed && commonStyles.pressedBackButton
+  ]}
+
   onPress={() => router.push("/")}>
   <MaterialIcons name="arrow-back" size={24} color="#fff" />
   </Pressable>

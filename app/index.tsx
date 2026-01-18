@@ -27,8 +27,12 @@ export default function Home() {
       </View>
 
     <Pressable
-        style={defaultStyle.button}   // käytetään uutta button-tyyliä
-        onPress={() => router.push("/NewList")}>
+        style={({ pressed }) => [
+            defaultStyle.button,
+            pressed && defaultStyle.pressedButton
+            ]}
+            onPress={() => router.push("/NewList")}>
+
     <Text style={defaultStyle.buttonText}>Uusi lista</Text>
     </Pressable>
       </View>

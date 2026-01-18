@@ -56,6 +56,13 @@ export const commonStyles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 5,
   },
+  pressedButton: {
+    backgroundColor: '#4b5d2b', // tummempi vihreä, Lisää-painikkeelle
+  },
+  pressedBackButton: {
+    backgroundColor: '#4b5d2b', // tummempi vihreä, takaisin-painikkeelle
+},
+
 });
 
 export default commonStyles;
