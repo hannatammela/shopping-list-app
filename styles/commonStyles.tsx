@@ -48,6 +48,23 @@ export const commonStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
   },
+  backButton: {
+  position: 'absolute',
+  bottom: 40,
+  left: 30,
+  width: 60,
+  height: 60,
+  borderRadius: 30,         // tekee siitä täysin pyöreän
+  backgroundColor: '#334216', 
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.3,
+  shadowRadius: 3,
+  elevation: 5,             // android-varjo
+},
+
 });
 
 export default commonStyles;

@@ -1,8 +1,9 @@
 import { DancingScript_400Regular, useFonts } from '@expo-google-fonts/dancing-script';
+import { MaterialIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import commonStyles from "../styles/commonStyles";
-
 
 export default function NewList() {
   const [listName, setListName] = useState('');
@@ -50,6 +51,13 @@ export default function NewList() {
   >
   <Text style={commonStyles.primaryButtonText}>Lisää</Text>
   </Pressable>
+
+  <Pressable
+  style={commonStyles.backButton}
+  onPress={() => router.push("/")}>
+  <MaterialIcons name="arrow-back" size={24} color="#fff" />
+  </Pressable>
+
   </View>
   );
 }
