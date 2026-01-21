@@ -22,8 +22,7 @@ export default function Home() {
 
         <Fontisto
           name="shopping-bag-1"
-          style={defaultStyle.shoppingbagIcon}
-        />
+          style={defaultStyle.shoppingbagIcon}/>
       </View>
 
     <Pressable
@@ -32,7 +31,6 @@ export default function Home() {
             pressed && defaultStyle.pressedButton
             ]}
             onPress={() => router.push("/NewList")}>
-
     <Text style={defaultStyle.buttonText}>Uusi lista</Text>
     </Pressable>
       </View>
