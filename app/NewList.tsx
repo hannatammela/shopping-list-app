@@ -12,8 +12,28 @@ export default function NewList() {
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState('');
   const [items, setItems] = useState<{ product: string; quantity: string; checked: boolean }[]>([]);
+  
    useEffect(() => {
     fetchItems();
+    const channel = supabase
+    .channel('shopping-list-realtime')
+    .on(
+    'postgres_changes',
+    {
+      event: '*',
+      schema: 'public',
+      table: 'shopping_list',
+    },
+    (payload) => {
+      console.log('Realtime event:', payload);
+      fetchItems();
+    }
+  )
+  .subscribe();
+
+  return () => {
+    supabase.removeChannel(channel);
+  }
   }, []);
 
   // LISÄÄMINEN
