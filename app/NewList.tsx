@@ -30,10 +30,13 @@ export default function NewList() {
   const [items, setItems] = useState<{ 
     product: string; 
     quantity: string; 
-    checked: boolean 
+    checked: boolean,
+    device_id?: string,
   }[]>([]);
 
-
+  const [deviceId] = useState(() =>
+    Math.random().toString(36).substring(2, 15)
+  );
 
   // Notifikaatioluvat
     useEffect(() => {
@@ -67,34 +70,31 @@ export default function NewList() {
   // REAALIAIKAINEN KUUNTELU Realtimen avulla
   // Haetaan tuotteet ja kuunnellaan reaaliaikaisia muutoksia
    useEffect(() => {
-    fetchItems();
-    const channel = supabase
+  fetchItems();
+
+  const channel = supabase
     .channel('shopping-list-realtime')
-    .on(
-    'postgres_changes',
-    {
-      event: '*',
-      schema: 'public',
-      table: 'shopping_list',
-    },
-    (payload) => {
-      console.log('Realtime event:', payload);
-      fetchItems(); // Lista päivitetään muutoksien jälkeen
+    // INSERT → notifikaatio vain muille
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'shopping_list' },
+      (payload) => {
+        const newItem = payload.new as { product: string; device_id?: string };
+        if (newItem.product && newItem.device_id !== deviceId) {
+          showNotification(newItem.product);
+        }
+        fetchItems();
+      })
+    // UPDATE → päivitetään lista
+    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'shopping_list' },
+      () => fetchItems())
+    // DELETE → päivitetään lista
+    .on('postgres_changes', { event: 'DELETE', schema: 'public', table: 'shopping_list' },
+      () => fetchItems())
+    .subscribe((status) => console.log('Channel status:', status));
 
-    if ((payload.new as { product?: string })?.product) {
-      showNotification((payload.new as { product: string }).product);
-      }
-    }
-  )
-  .subscribe(); // Websocket yhteys
-
-  
-  
-  // Siivotaan kanava pois komponentin poistuessa
   return () => {
     supabase.removeChannel(channel);
-  }
-  }, []);
+  };
+}, []);
 
 
   // Funktio notifikaatiolle
@@ -126,7 +126,7 @@ export default function NewList() {
     // Lisätään Supabaseen ja palautetaan rivi
     const { data, error } = await supabase
       .from('shopping_list')
-      .insert([{ product, quantity, checked: false }])
+      .insert([{ product, quantity, checked: false, device_id: deviceId }])
       .select()
       .single();
 
@@ -146,7 +146,8 @@ export default function NewList() {
     { 
       product: data.product, 
       quantity: data.quantity, 
-      checked: data.checked }]);
+      checked: data.checked,
+      device_id: data.device_id }]);
     
     // Tyhjennetään inputit
     setProduct('');
