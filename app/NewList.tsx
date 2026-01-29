@@ -38,7 +38,9 @@ export default function NewList() {
       fetchItems(); // Lista päivitetään muutoksien jälkeen
     }
   )
-  .subscribe();
+  .subscribe(); // Websocket yhteys
+
+  
   
   // Siivotaan kanava pois komponentin poistuessa
   return () => {
