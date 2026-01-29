@@ -183,10 +183,12 @@ export default function NewList() {
       </Pressable>
 
 
+
       {/* Ostoslista */}
       <View style={commonStyles.listContainer}>
         {items.map((item, index) => (
           <View key={index} style={commonStyles.itemBox}>
+
 
 
       {/* Checkbox */}
@@ -199,10 +201,12 @@ export default function NewList() {
         
 
 
+
         {/* Tuote ja määrä */}
         <Text style={commonStyles.itemText}>{item.product}</Text>
         <Text style={commonStyles.itemText}>{item.quantity}</Text>
         
+
 
         {/* Poistopainike */}
         <Pressable
@@ -213,11 +217,10 @@ export default function NewList() {
             >
               <MaterialIcons name="delete" style={commonStyles.deleteIcon} />
         </Pressable>
-
-
           </View>
         ))}
       </View>
+
 
 
       {/* Takaisin-nappi */}
