@@ -8,11 +8,11 @@ export const commonStyles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 52,
+    fontSize: 56,
     fontFamily: 'DancingScript',
     color: '#334216',
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 35,
     marginBottom: 60,
   },
   input: {
