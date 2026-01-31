@@ -1,4 +1,3 @@
-
 import { DancingScript_400Regular, useFonts } from '@expo-google-fonts/dancing-script';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as Notifications from 'expo-notifications';

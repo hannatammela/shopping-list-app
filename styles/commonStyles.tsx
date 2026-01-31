@@ -40,27 +40,8 @@ export const commonStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
   },
-  backButton: {
-    position: 'absolute',
-    bottom: 40,
-    left: 30,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#334216',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
-  },
   pressedButton: {
     backgroundColor: '#4b5d2b', // tummempi vihreä, Lisää-painikkeelle
-  },
-  pressedBackButton: {
-    backgroundColor: '#4b5d2b', // tummempi vihreä, takaisin-painikkeelle
   },
   itemBox: {
     flexDirection: 'row',
@@ -107,11 +88,6 @@ export const commonStyles = StyleSheet.create({
     borderRadius: 5,             // pyöristys, jotta efekti on siisti
     padding: 3,
   },
-  backIcon: {
-  fontSize: 26,
-  color: '#fff',
-},
-
 
 });
 
