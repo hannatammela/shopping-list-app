@@ -6,7 +6,7 @@ import { Alert, Platform, Pressable, Text, TextInput, View } from 'react-native'
 import commonStyles from "../styles/commonStyles";
 import { supabase } from '../supabaseClient';
 
-// Notifikaatioiden handler
+// Notifikaatioiden käsittelijä eli miten notifikaatiot näytetään
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldPlaySound: true,
@@ -16,13 +16,17 @@ Notifications.setNotificationHandler({
   }),
 });
 
+//Pääkomponentti NewList()
+// Ladataan myös Dacing Script
 export default function NewList() {
-  const [fontsLoaded] = useFonts({ 
-    DancingScript: DancingScript_400Regular });
+  const [fontsLoaded] = useFonts({ DancingScript: DancingScript_400Regular }
+  );
   
+
   // Lomakkeen tilat, tuote ja määrä
   const [product, setProduct] = useState('');
   const [quantity, setQuantity] = useState('');
+
 
   // Ostoslistan tilataulukko
   const [items, setItems] = useState<{ 
@@ -32,9 +36,12 @@ export default function NewList() {
     device_id?: string,
   }[]>([]);
 
-  const [deviceId] = useState(() =>
-    Math.random().toString(36).substring(2, 15)
+  
+  // Luodaan yksilöllinen laite-id 36-järjestelmällä
+  const [deviceId] = useState(() => Math.random().toString(36).substring(2, 15)
   );
+
+
 
   // Notifikaatioluvat
     useEffect(() => {
